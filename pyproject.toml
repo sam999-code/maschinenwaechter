@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "maschinenwaechter"
+version = "0.1.0"
+description = "Predictive-maintenance SaaS learning project (German Mittelstand focus)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+# Core dependencies actually used in Phases 1-3.
+# NOTE: numpy / pandas / matplotlib are preinstalled in the managed runtime.
+dependencies = [
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "pydantic",
+    "pyyaml",
+]
+
+[project.optional-dependencies]
+# --- ml-future (Phase 4+) ---
+# Deep learning models (Autoencoder / LSTM) and classical baselines.
+# Commented out intentionally: Phase 3 is pure numpy/pandas on purpose,
+# so the learner understands the classical baseline before torch.
+# ml-future = [
+#     "torch",
+#     "scikit-learn",
+# ]
+
+# --- api-future (Phase 6+) ---
+# FastAPI serving layer + local dev server.
+# api-future = [
+#     "fastapi",
+#     "uvicorn",
+# ]
+
+# --- dev ---
+dev = [
+    "pytest",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

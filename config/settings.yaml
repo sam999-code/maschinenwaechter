@@ -1,0 +1,23 @@
+# Simulation & detection settings for maschinenwaechter (Phase 1-3)
+# Values here are the single source of truth; code defaults mirror them.
+
+sampling_hz: 10              # samples per second used by tests (fast, small windows)
+generation_hz: 1             # sampling_hz used by scripts (fast CSV generation)
+window_samples: 300          # rolling window for the z-score detector (~5 min @ 10 Hz)
+zscore_threshold: 3.5        # anomaly score above this -> is_anomaly = True
+
+fault:
+  # When a fault is injected at fault_at_hour, the machine transitions over
+  # this many hours from healthy to fully faulty (keeps the scenario physical).
+  transition_hours: 2.0
+  bearing_wear:
+    vibration_growth_rate: 0.12   # exp() growth rate of the vibration amplitude
+    shock_ramp_hours: 0.167       # impulsive shocks reach full strength (~10 min)
+    shock_rate_per_s: 0.1         # ~6 impulsive shocks per minute at full wear
+    shock_amplitude: 6.0          # peak shock amplitude (mm/s, ±50% jitter)
+    temperature_rise_per_hour: 0.35  # linear temperature drift (°C per hour)
+    acoustic_rise_db: 6.0         # step rise in acoustic level after the fault
+
+paths:
+  sample_data_dir: data/sample
+  figures_dir: reports/figures
