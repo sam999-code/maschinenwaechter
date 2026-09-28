@@ -1,0 +1,7 @@
+machine,method,mae_hours,bias_hours
+test_machine_201,rul_regressor,6.956,2.431
+test_machine_201,naive_median,12.778,-1.444
+test_machine_201,always_cap,46.556,46.556
+test_machine_202,rul_regressor,9.611,-0.028
+test_machine_202,naive_median,15.444,-6.778
+test_machine_202,always_cap,41.222,41.222
