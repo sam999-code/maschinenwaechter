@@ -65,3 +65,5 @@ __pycache__/
 .pytest_cache/
 *.egg-info/
 .venv/
+reports/uvicorn_log*.txt
+!reports/figures/linkedin_banner.png

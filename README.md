@@ -3,6 +3,32 @@
 > **Deutsch:** *Maschinenwächter* = „Maschinen-Wächter" — ein Lernprojekt für Predictive-Maintenance-SaaS für den deutschen Mittelstand.
 > **English:** *Machine Guard* — a long-term learning project: a predictive-maintenance SaaS for the German SME (Mittelstand) market.
 
+![MachineGuard — AI Predictive Maintenance](reports/figures/linkedin_banner.png)
+
+---
+
+## 🎓 The Learning Path — 12 lessons from a sine wave to a containerized ML service
+
+Built step by step, every line explained and tested. Each lesson lives in `lessons/`.
+
+| # | Lesson | Key result |
+|---|---|---|
+| 1–2 | Machine signals: healthy vs. sick, seen with your own eyes | steady wave vs. growing wave + knocks |
+| 3 | Rolling z-score detector (first real ML algorithm) | first alert 0.22 s after fault onset, 0 false alarms |
+| 4 | Automated tests with pytest | 4 promises pinned as code (incl. the *documented blind spot*) |
+| 5 | Realistic 24 h simulator (86,400 points, day/night cycles) | the z-score's blind spot visible at factory scale |
+| 6 | **LSTM Autoencoder (PyTorch)** — watches all sensors at once | **88.7%** of fault time flagged vs **0.1%** for the z-score |
+| 7 | Honest evaluation: precision / recall / F1 + threshold sweeps | the precision–recall tradeoff, quantified |
+| 8 | Generalization exam: train on machine A, test on unseen machine B | the model learned machine *physics*, not noise |
+| 9 | Save the model bundle (weights + scaler + threshold) + CLI tool | bit-for-bit reproducible reports on any CSV |
+| 10 | One clean, tested package + sustained-alarm logic | 5 package tests green; your "one more test" idea, in code |
+| 11 | **FastAPI web service** (`/health`, `/analyze`, auto `/docs`) | an ML microservice any software can call |
+| 12 | **Docker** — build once, run anywhere | `{"status":"ok"}` from inside a Linux container |
+
+Also validated on **real data**: NASA's CMAPSS turbofan benchmark (run-to-failure sensor data) — reconstruction error climbs as RUL falls (Spearman ρ = −0.206, p ≈ 1e-97).
+
+**Stack:** Python · PyTorch · pandas/numpy · pytest · FastAPI · uvicorn · Docker
+
 ---
 
 ## ما هي الصيانة التنبؤية؟ / What is predictive maintenance?

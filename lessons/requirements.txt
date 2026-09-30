@@ -1,0 +1,11 @@
+fastapi==0.141.1
+httpx==0.28.1
+matplotlib==3.11.2
+numpy==2.5.3
+pandas==3.0.6
+pydantic==2.13.5
+pydantic_core==2.46.5
+python-multipart==0.0.32
+PyYAML==6.0.3
+torch==2.14.0+cpu
+uvicorn==0.54.0
