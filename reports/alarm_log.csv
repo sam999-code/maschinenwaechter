@@ -1,0 +1,5 @@
+rule_id,hour,kind,score,priority
+bearing_wear_vibration,13.336,raise,3.0199,high
+slow_drift_trend,14.592,raise,4.2514,low
+bearing_wear_vibration,13.336,raise,3.0199,high
+slow_drift_trend,14.592,raise,4.2514,low

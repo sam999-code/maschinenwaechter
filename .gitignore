@@ -67,3 +67,4 @@ __pycache__/
 .venv/
 reports/uvicorn_log*.txt
 !reports/figures/linkedin_banner.png
+models/hf_smollm2_maintenance/

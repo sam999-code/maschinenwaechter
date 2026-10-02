@@ -31,6 +31,29 @@ Also validated on **real data**: NASA's CMAPSS turbofan benchmark (run-to-failur
 
 ---
 
+## 🤗 HuggingFace module (H1–H3) — from using models to agent engineering
+
+| # | Lesson | Key result |
+|---|---|---|
+| H1 | Download & run a real open-source LLM (SmolLM2-135M) | a 134M-parameter model answers maintenance questions on CPU — and it IS a `torch.nn.Module` |
+| H2 | Fine-tune it on our domain (12 Q&A pairs, prompt masking, plain PyTorch loop) | loss drops, behavior visibly shifts — and we learn *why* toy data only nudges a model |
+| H3 | The Agent: LLM + tools + validation loop + fallback | the fine-tuned model almost emits JSON (few-shot works, truncation fails) → guardrails save the pipeline; facts come from tools, not the LLM's imagination |
+
+## 🚨 W2 — the Alarm-Management layer (the white space nobody builds)
+
+Deep-research-driven: 15-source dive into EEMUA 191 / ISA-18.2 before building.
+
+| Lesson | Delivered | Headline number |
+|---|---|---|
+| W2-1 | Alert Registry (rationalization-as-code), hysteresis, on/off-delay state machine, quarantine | **4,139 raw flagged windows → 2 managed alarms** |
+| W2-2 | ISA-18.2 KPI suite: floods, stale alarms, priority mix, bad actors | the suite flags *its own* priority inflation |
+| W2-3 | PPV-first evaluation (per-run first-trigger) | our hypothesis **lost to data** (managed PPV 0% — science, not vibes) |
+| W2-4 | Per-machine calibration ("learning phase") + verification loop (return-to-normal + disposition → verdict) | **PPV 0% → 66.7%, TPR 0% → 100%, measured PPV 1.0** |
+
+Tests: 16 more pytest cases across the W2 layer, all green.
+
+---
+
 ## ما هي الصيانة التنبؤية؟ / What is predictive maintenance?
 
 **بالعربية:** الصيانة التنبؤية تعني مراقبة آلات المصانع بأجهزة استشعار (الاهتزاز، الحرارة، الصوت، سرعة الدوران) والتنبّؤ بالأعطال **قبل** حدوثها، بدلاً من الصيانة الدورية (تغيير القطع بلا حاجة) أو الصيانة عند الكسر (توقّف خط الإنتاج). نموذج يتعلّم الإشارات الطبيعية للآلة، ثم يُنذر عندما تنحرف هذه الإشارات.
